@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App For ALT</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="rain"></div>
+  <main class="app">
+    <h1 class="app__title">Weather</h1>
+    <p class="app__subtitle">Type a city to see its current conditions.</p>
+    <div class="search">
+      <input
+        type="text"
+        id="cityInput"
+        class="search__input"
+        placeholder="e.g. Lagos"
+      />
+      <button id="searchBtn" class="search__button">Search</button>
+    </div>
+    <section id="result" class="result"></section>
+  </main>
+  <script src="script.js"></script>
+  <!-- This connects your JavaScript file. It goes at the BOTTOM so the HTML
+       above is already loaded before the script tries to use it. -->
+</body>
+</html>
