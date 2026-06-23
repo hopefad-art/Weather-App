@@ -1,193 +1,122 @@
-/* ===========================================================
-   styles.css  —  controls how the page LOOKS
-   Read the comments to understand what each block does.
-   =========================================================== */
-
-/* The * selector means "every element on the page".
-   This resets default spacing so we control it ourselves. */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* makes width include padding, easier to size things */
-}
-
-/* Styles for the whole page background and default text */
+/* Base page styling */
 body {
-  font-family: "Segoe UI", system-ui, sans-serif; /* the font used everywhere */
-  min-height: 100vh;            /* page fills at least the full screen height */
-  display: flex;                /* lets us center the app */
-  align-items: center;          /* vertical centering */
-  justify-content: center;      /* horizontal centering */
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
   padding: 20px;
-  /* A soft sky-to-evening gradient background */
-  
-  color: #6dd5fa;
- background-image:  linear-gradient(160deg, #2980b9 0%, #6dd5fa 55%, #a8d8ea 100%);
-}
- 
-  /* ============================================================
-   RAIN EFFECT
-   The .rain box covers the whole screen. script.js fills it
-   with lots of .drop elements, each one a thin falling line.
-   ============================================================ */
-.rain {
-  position: fixed;       /* stays put over the whole viewport */
-  inset: 0;              /* top/right/bottom/left all 0 */
-  pointer-events: none;  /* clicks pass straight through to the app */
-  overflow: hidden;
-  z-index: 1;
-}
-.drop {
-  position: absolute;
-  top: -120px;           /* start just above the screen */
-  width: 2px;
-  height: 90px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(174, 194, 224, 0.6)
-  );
-  animation: fall linear infinite;
-}
-
-/* moves a drop from above the screen to below it */
-@keyframes fall {
-  to {
-    transform: translateY(120vh);
-  }
-}
-
-
-/* The white card that holds everything */
-.app {
-  position: relative;          /* so the rain can be behind it */
-  z-index: 2;                /* makes sure the app is above the rain */
-  background: #ffffff;
-  width: 100%;
-  max-width: 420px;             /* the card never grows wider than this */
-  padding: 32px;
-  border-radius: 20px;          /* rounded corners */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); /* soft shadow for depth */
-}
-
-/* The big "Weather" heading */
-.app__title {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 4px;
-  color: #18a6cd;
-}
-
-/* The grey line under the heading */
-.app__subtitle {
-  font-size: 14px;
-  color: #5b7186;
-  margin-bottom: 24px;
-}
-
-/* The row holding the input and button side by side */
-.search {
   display: flex;
-  gap: 8px;                     /* space between input and button */
-  margin-bottom: 20px;
-}
-
-/* The text box */
-.search__input {
-  flex: 1;                      /* take up all remaining space */
-  padding: 12px 14px;
-  font-size: 15px;
-  border: 2px solid #d4dde6;
-  border-radius: 10px;
-  outline: none;
-}
-
-/* Highlight the box when it is clicked/active (good for accessibility) */
-.search__input:focus {
-  border-color: #2d6a9f;
-}
-
-/* The Search button */
-.search__button {
-  padding: 12px 18px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-  background: #18a6cd;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;              /* shows a hand pointer on hover */
-}
-
-/* Make the button slightly darker when hovered */
-.search__button:hover {
-  background: #1e3a5f;
-}
-
-/* The results area */
-.result {
-  text-align: center;
-}
-
-/* The city + country line, e.g. "Lagos, Nigeria" */
-.result__place {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-/* The big temperature number */
-.result__temp {
-  font-size: 56px;
-  font-weight: 700;
-  color: #2d6a9f;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-/* The short condition text, e.g. "Partly cloudy" */
-.result__condition {
-  font-size: 16px;
-  color: #5b7186;
-  margin-bottom: 20px;
-}
-
-/* The row of small detail boxes (humidity, wind, high/low) */
-.result__details {
-  display: flex;
-  gap: 10px;
   justify-content: center;
 }
 
-/* Each individual detail box */
-.detail {
+.app {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Header bar - exact navy from brief */
+.app-header {
+  background: #1A3C5E;
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.app-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Search row */
+.search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+#cityInput {
   flex: 1;
-  background: #f3f7fb;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#searchBtn {
+  padding: 10px 16px;
+  background: #2E86AB;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;   /* exact transition from brief */
+}
+#searchBtn:hover {
+  background: #226d8c;          /* hover on search button */
+}
+
+/* Current weather card - exact teal hero from brief */
+.current {
+  background: #2E86AB;
+  color: white;
   border-radius: 12px;
-  padding: 12px 8px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.current .temp {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 8px 0;
 }
 
-/* The small grey label inside a detail box */
-.detail__label {
-  font-size: 12px;
-  color: #5b7186;
-  margin-bottom: 4px;
+/* Details row */
+.details {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.details div {
+  text-align: center;
+  flex: 1;
 }
 
-/* The value inside a detail box */
-.detail__value {
-  font-size: 16px;
-  font-weight: 600;
+/* Forecast list */
+.forecast {
+  background: white;
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+.forecast-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  transition: all 0.2s ease;   /* smooth hover */
+}
+.forecast-row:last-child {
+  border-bottom: none;
+}
+.forecast-row:hover {
+  background: #f5f9fc;          /* hover effect on forecast rows - brief requires this */
 }
 
-/* Style for messages like "Loading..." or errors */
-.message {
-  font-size: 15px;
-  color: #5b7186;
-  padding: 10px 0;
+/* Loading message */
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #555;
 }
 
-/* Make error messages red so they stand out */
-.message--error {
-  color: #c0392b;
+/* Responsive - brief requires a media query under 480px */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .current .temp {
+    font-size: 40px;       /* slightly smaller temp on small screens */
+  }
+  .app-header h1 {
+    font-size: 18px;
+  }
 }

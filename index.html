@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather App For ALT</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="rain"></div>
   <main class="app">
-    <h1 class="app__title">Weather</h1>
-    <p class="app__subtitle">Type a city to see its current conditions.</p>
-    <div class="search">
-      <input
-        type="text"
-        id="cityInput"
-        class="search__input"
-        placeholder="e.g. Lagos"
-      />
-      <button id="searchBtn" class="search__button">Search</button>
-    </div>
-    <section id="result" class="result"></section>
+    <header class="app-header">
+      <h1>Weather App</h1>
+    </header>
+
+    <!-- Search -->
+    <section class="search">
+      <input type="text" id="cityInput" placeholder="Enter a city">
+      <button id="searchBtn">Search</button>
+    </section>
+
+    <!-- Current weather -->
+    <section class="current" id="current"></section>
+
+    <!-- Details: humidity, wind, UV -->
+    <section class="details" id="details"></section>
+
+    <!-- 5-day forecast -->
+    <section class="forecast" id="forecast"></section>
   </main>
-  <script src="script.js"></script>
-  <!-- This connects your JavaScript file. It goes at the BOTTOM so the HTML
-       above is already loaded before the script tries to use it. -->
+<script src="script.js"></script>
 </body>
 </html>
